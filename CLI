@@ -1,0 +1,63 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package projetointegrador.CLI;
+
+/**
+ *
+ * @author 36127512021.2
+ */
+public class CLI {
+    String nome, cpf, endereco, titulo, inicio, fim;
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public String getCpf() {
+        return cpf;
+    }
+
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
+    }
+
+    public String getEndereco() {
+        return endereco;
+    }
+
+    public void setEndereco(String endereco) {
+        this.endereco = endereco;
+    }
+
+    public String getTitulo() {
+        return titulo;
+    }
+
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
+    }
+
+    public String getInicio() {
+        return inicio;
+    }
+
+    public void setInicio(String inicio) {
+        this.inicio = inicio;
+    }
+
+    public String getFim() {
+        return fim;
+    }
+
+    public void setFim(String fim) {
+        this.fim = fim;
+    }
+    
+}
