@@ -86,7 +86,7 @@ public class PesquisarLIV extends javax.swing.JFrame {
                 String autor = resultado.getString("autor");
                 String quantidade = resultado.getString("quantidade");
                 String prat = resultado.getString("prateleira");
-                String corr = resultado.getString("corredor");
+                String esta = resultado.getString("estante");
                 
                 JOptionPane.showMessageDialog(null, "Dados encontrados com sucesso!\n"+
 						                    "------------------------------\n"+
@@ -94,7 +94,7 @@ public class PesquisarLIV extends javax.swing.JFrame {
                                                                     "Autor: "+autor+"\n"+
 						                    "Cópias disponíveis: "+quantidade+"\n"+
                                                                     "Prateleira: "+prat+"\n"+
-                                                                    "Corredor: "+corr+"\n"+
+                                                                    "Estante: "+esta+"\n"+
 						                    "------------------------------");
                 
 	    }
