@@ -75,8 +75,10 @@ public class EmprestarLIV extends javax.swing.JFrame {
     private void retirarActionPerformed(java.awt.event.ActionEvent evt) {                                        
         String titulo = JOptionPane.showInputDialog("Digite o título a ser retirado: ");
         String cpf = JOptionPane.showInputDialog ("Digite o CPF do/a usuário/a: ");
+        String ini = JOptionPane.showInputDialog ("Insira a data de hoje (AAAA-MM-DD): ");
+        String dev = JOptionPane.showInputDialog ("Insira a data de devolução (AAAA-MM-DD): ");
         String url = "jdbc:mysql://localhost/projetointegrador";
-        String sql = "DELETE FROM livro WHERE titulo='"+titulo+"'";
+        String sql = "UPDATE livro set status='Indisponivel', quantidade='0' where titulo='"+titulo+"'";
         
         try
         {
@@ -88,7 +90,7 @@ public class EmprestarLIV extends javax.swing.JFrame {
         catch(Exception erro){
             JOptionPane.showMessageDialog(null,"Erro na Conexão com Banco."+erro);
     }
-        String sql1 = "UPDATE clientes SET titulo='"+titulo+"' WHERE cpf='"+cpf+"'";
+        String sql1 = "UPDATE clientes SET titulo='"+titulo+"', inicio='"+ini+"', fim='"+dev+"' WHERE cpf='"+cpf+"'";
             try
         {
             Connection conexao = DriverManager.getConnection(url,"root","");
