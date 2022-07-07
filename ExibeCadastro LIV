@@ -26,6 +26,8 @@ public class ExibeCadastro extends javax.swing.JFrame {
         volume.setText(LIV.getVolume());
         quantidade.setText(LIV.getQuantidade());
         status.setText(LIV.getStatus());
+        prateleira.setText(LIV.getPrateleira());
+        estante.setText(LIV.getEstante());
 }
 
     /**
@@ -52,6 +54,10 @@ public class ExibeCadastro extends javax.swing.JFrame {
         quantidade = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
         status = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
+        prateleira = new javax.swing.JLabel();
+        estante = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -144,6 +150,28 @@ public class ExibeCadastro extends javax.swing.JFrame {
         getContentPane().add(status);
         status.setBounds(110, 260, 210, 30);
 
+        jLabel15.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel15.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel15.setText("Prateleira:");
+        getContentPane().add(jLabel15);
+        jLabel15.setBounds(10, 290, 70, 30);
+
+        prateleira.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        prateleira.setForeground(new java.awt.Color(255, 255, 255));
+        getContentPane().add(prateleira);
+        prateleira.setBounds(110, 290, 210, 30);
+
+        estante.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        estante.setForeground(new java.awt.Color(255, 255, 255));
+        getContentPane().add(estante);
+        estante.setBounds(110, 320, 210, 30);
+
+        jLabel16.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel16.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel16.setText("Estante:");
+        getContentPane().add(jLabel16);
+        jLabel16.setBounds(10, 320, 70, 30);
+
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projetointegrador/Imagens/estante-para-livros.jpg"))); // NOI18N
         jLabel5.setText("jLabel3");
         getContentPane().add(jLabel5);
@@ -191,16 +219,20 @@ public class ExibeCadastro extends javax.swing.JFrame {
     // Variables declaration - do not modify                     
     private javax.swing.JLabel autor;
     private javax.swing.JLabel editora;
+    private javax.swing.JLabel estante;
     private javax.swing.JLabel isbn;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel prateleira;
     private javax.swing.JLabel quantidade;
     private javax.swing.JLabel status;
     private javax.swing.JLabel titulo;
