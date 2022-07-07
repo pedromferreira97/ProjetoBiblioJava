@@ -81,7 +81,7 @@ public class EditarLIV extends javax.swing.JFrame {
                                                 "6 - Quantidade"+"\n"+
                                                 "7 - Status"+"\n"+
                                                 "8 - Prateleira"+"\n"+
-                                                "9 - Corredor"+"\n");
+                                                "9 - Estante"+"\n");
         
         switch (Opt) {
             
@@ -223,9 +223,9 @@ public class EditarLIV extends javax.swing.JFrame {
             
             case "9":
                 String tit8 = JOptionPane.showInputDialog ("Insira o título do livro: ");
-                String corredor = JOptionPane.showInputDialog ("Insira o novo corredor: ");
+                String esta = JOptionPane.showInputDialog ("Insira o novo estante: ");
                 String url9 = "jdbc:mysql://localhost/projetointegrador";
-                String sql9 = "UPDATE livro set corredor='"+corredor+"' where titulo='"+tit8+"'";
+                String sql9 = "UPDATE livro set estante='"+esta+"' where titulo='"+tit8+"'";
         try {
             Connection conexao = DriverManager.getConnection(url9,"root","");
             PreparedStatement atualizar = conexao.prepareStatement(sql9);
@@ -235,7 +235,9 @@ public class EditarLIV extends javax.swing.JFrame {
         }
         catch(Exception erro){
             JOptionPane.showMessageDialog(null,"Erro na Conexão com Banco."+erro);
-    }               
+    }
+                
+                
 }
     }                                      
 
