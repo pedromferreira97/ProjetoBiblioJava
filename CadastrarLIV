@@ -54,7 +54,7 @@ public class CadastrarLIV extends javax.swing.JFrame {
         jLabel13 = new javax.swing.JLabel();
         prateleira = new javax.swing.JTextField();
         jLabel14 = new javax.swing.JLabel();
-        corredor = new javax.swing.JTextField();
+        estante = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
 
         jLabel10.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -202,17 +202,17 @@ public class CadastrarLIV extends javax.swing.JFrame {
 
         jLabel14.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel14.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel14.setText("Corredor:");
+        jLabel14.setText("Estante:");
         getContentPane().add(jLabel14);
-        jLabel14.setBounds(40, 370, 68, 30);
+        jLabel14.setBounds(40, 370, 58, 30);
 
-        corredor.addActionListener(new java.awt.event.ActionListener() {
+        estante.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                corredorActionPerformed(evt);
+                estanteActionPerformed(evt);
             }
         });
-        getContentPane().add(corredor);
-        corredor.setBounds(120, 370, 230, 30);
+        getContentPane().add(estante);
+        estante.setBounds(120, 370, 230, 30);
 
         jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projetointegrador/Imagens/estante-para-livros.jpg"))); // NOI18N
         jLabel12.setText("jLabel3");
@@ -259,7 +259,7 @@ public class CadastrarLIV extends javax.swing.JFrame {
     LIV LIV = new LIV();
     ExibeCadastro EXI = new ExibeCadastro();
         
-    if ((autor.getText().equals("")) && (titulo.getText().equals("")) && (isbn.getText().equals("")) && (editora.getText().equals("")) && (volume.getText().equals("")) && (quantidade.getText().equals("")) && (status.getText().equals("")) && (prateleira.getText().equals("")) && (corredor.getText().equals(""))){
+    if ((autor.getText().equals("")) && (titulo.getText().equals("")) && (isbn.getText().equals("")) && (editora.getText().equals("")) && (volume.getText().equals("")) && (quantidade.getText().equals("")) && (status.getText().equals("")) && (prateleira.getText().equals("")) && (estante.getText().equals(""))){
     JOptionPane.showMessageDialog(null, "Não pode haver campos em branco! \n"+
                                         "Preenche-os corretamente!");
         autor.setText("");
@@ -270,12 +270,12 @@ public class CadastrarLIV extends javax.swing.JFrame {
         quantidade.setText("");
         status.setText("");
         prateleira.setText("");
-        corredor.setText("");
+        estante.setText("");
         
         } else {
             
         String url = "jdbc:mysql://localhost/projetointegrador";
-        String sql = "INSERT INTO livro VALUES(null,'"+autor.getText()+"','"+titulo.getText()+"','"+isbn.getText()+"','"+editora.getText()+"','"+volume.getText()+"', '"+quantidade.getText()+"','"+status.getText()+"','"+prateleira.getText()+"','"+corredor.getText()+"')";
+        String sql = "INSERT INTO livro VALUES(null,'"+autor.getText()+"','"+titulo.getText()+"','"+isbn.getText()+"','"+editora.getText()+"','"+volume.getText()+"', '"+quantidade.getText()+"','"+status.getText()+"','"+prateleira.getText()+"','"+estante.getText()+"')";
         
         try
         {
@@ -295,7 +295,7 @@ public class CadastrarLIV extends javax.swing.JFrame {
         LIV.setQuantidade(quantidade.getText());
         LIV.setStatus(status.getText());
         LIV.setPrateleira(prateleira.getText());
-        LIV.setCorredor(corredor.getText());
+        LIV.setEstante(estante.getText());
 
         EXI.exportarDados(LIV);
         EXI.setVisible(true);
@@ -306,9 +306,9 @@ public class CadastrarLIV extends javax.swing.JFrame {
         // TODO add your handling code here:
     }                                          
 
-    private void corredorActionPerformed(java.awt.event.ActionEvent evt) {                                         
+    private void estanteActionPerformed(java.awt.event.ActionEvent evt) {                                        
         // TODO add your handling code here:
-    }                                        
+    }                                       
 
     /**
      * @param args the command line arguments
@@ -348,8 +348,8 @@ public class CadastrarLIV extends javax.swing.JFrame {
     // Variables declaration - do not modify                     
     private javax.swing.JTextField autor;
     private javax.swing.JButton cadastrar;
-    private javax.swing.JTextField corredor;
     private javax.swing.JTextField editora;
+    private javax.swing.JTextField estante;
     private javax.swing.JTextField isbn;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
