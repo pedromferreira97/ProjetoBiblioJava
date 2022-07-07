@@ -79,15 +79,17 @@ public class EditarLIV extends javax.swing.JFrame {
                                                 "4 - Editora"+"\n"+
                                                 "5 - Volume"+"\n"+
                                                 "6 - Quantidade"+"\n"+
-                                                "7 - Status"+"\n");
+                                                "7 - Status"+"\n"+
+                                                "8 - Prateleira"+"\n"+
+                                                "9 - Corredor"+"\n");
         
         switch (Opt) {
             
             case "1":
-        String autantigo = JOptionPane.showInputDialog ("Insira o autor a mudar: ");        
+        String tit = JOptionPane.showInputDialog ("Insira o título do livro: ");        
         String autnovo = JOptionPane.showInputDialog ("Insira o novo autor: ");
         String url = "jdbc:mysql://localhost/projetointegrador";
-        String sql = "UPDATE livro set autor='"+autnovo+"' where autor='"+autantigo+"'";
+        String sql = "UPDATE livro set autor='"+autnovo+"' where titulo='"+tit+"'";
         try {
             Connection conexao = DriverManager.getConnection(url,"root","");
             PreparedStatement atualizar = conexao.prepareStatement(sql);
@@ -101,8 +103,8 @@ public class EditarLIV extends javax.swing.JFrame {
         break;
             
             case "2":
-        String titantigo = JOptionPane.showInputDialog ("Insira o CPF a mudar: ");
-        String titnovo = JOptionPane.showInputDialog ("Insira o novo CPF: ");
+        String titantigo = JOptionPane.showInputDialog ("Insira o título a mudar: ");
+        String titnovo = JOptionPane.showInputDialog ("Insira o novo título: ");
         String url2 = "jdbc:mysql://localhost/projetointegrador";
         String sql2 = "UPDATE livro set titulo='"+titnovo+"' where titulo='"+titantigo+"'";
         try {
@@ -118,10 +120,10 @@ public class EditarLIV extends javax.swing.JFrame {
         break;
             
             case "3":
-        String codantigo = JOptionPane.showInputDialog ("Insira o ISBN a mudar: ");
+        String tit2 = JOptionPane.showInputDialog ("Insira o título do livro: ");
         String codnovo = JOptionPane.showInputDialog ("Insira o novo ISBN: ");
         String url3 = "jdbc:mysql://localhost/projetointegrador";
-        String sql3 = "UPDATE clientes set isbn='"+codnovo+"' where isbn='"+codantigo+"'";
+        String sql3 = "UPDATE livro set isbn='"+codnovo+"' where titulo='"+tit2+"'";
         try {
             Connection conexao = DriverManager.getConnection(url3,"root","");
             PreparedStatement atualizar = conexao.prepareStatement(sql3);
@@ -135,10 +137,10 @@ public class EditarLIV extends javax.swing.JFrame {
         break;
             
             case "4":
-        String ediantiga = JOptionPane.showInputDialog ("Insira a editora a mudar: ");
+        String tit3 = JOptionPane.showInputDialog ("Insira o título do livro: ");
         String edinova = JOptionPane.showInputDialog ("Insira a nova editora: ");
         String url4 = "jdbc:mysql://localhost/projetointegrador";
-        String sql4 = "UPDATE clientes set editora='"+edinova+"' where isbn='"+ediantiga+"'";
+        String sql4 = "UPDATE livro set editora='"+edinova+"' where titulo='"+tit3+"'";
         try {
             Connection conexao = DriverManager.getConnection(url4,"root","");
             PreparedStatement atualizar = conexao.prepareStatement(sql4);
@@ -149,11 +151,13 @@ public class EditarLIV extends javax.swing.JFrame {
         catch(Exception erro){
             JOptionPane.showMessageDialog(null,"Erro na Conexão com Banco."+erro);
     }
+        break;
+        
             case "5":
-        String volantigo = JOptionPane.showInputDialog ("Insira o volume a mudar: ");
+        String tit4 = JOptionPane.showInputDialog ("Insira o título do livro: ");
         String volnovo = JOptionPane.showInputDialog ("Insira o novo volume: ");
         String url5 = "jdbc:mysql://localhost/projetointegrador";
-        String sql5 = "UPDATE clientes set volume='"+volnovo+"' where volume='"+volantigo+"'";
+        String sql5 = "UPDATE livro set volume='"+volnovo+"' where titulo='"+tit4+"'";
         try {
             Connection conexao = DriverManager.getConnection(url5,"root","");
             PreparedStatement atualizar = conexao.prepareStatement(sql5);
@@ -164,11 +168,13 @@ public class EditarLIV extends javax.swing.JFrame {
         catch(Exception erro){
             JOptionPane.showMessageDialog(null,"Erro na Conexão com Banco."+erro);
     }
+        break;
+        
             case "6":
-        String quaantiga = JOptionPane.showInputDialog ("Insira a quantidade a mudar: ");
+        String tit5 = JOptionPane.showInputDialog ("Insira o título do livro: ");
         String quanova = JOptionPane.showInputDialog ("Insira a nova quantidade: ");
         String url6 = "jdbc:mysql://localhost/projetointegrador";
-        String sql6 = "UPDATE clientes set quantidade='"+quanova+"' where quantidade='"+quaantiga+"'";
+        String sql6 = "UPDATE livro set quantidade='"+quanova+"' where titulo='"+tit5+"'";
         try {
             Connection conexao = DriverManager.getConnection(url6,"root","");
             PreparedStatement atualizar = conexao.prepareStatement(sql6);
@@ -179,11 +185,13 @@ public class EditarLIV extends javax.swing.JFrame {
         catch(Exception erro){
             JOptionPane.showMessageDialog(null,"Erro na Conexão com Banco."+erro);
     }
+        break;
+        
             case "7":
-        String statantigo = JOptionPane.showInputDialog ("Insira o status a mudar: ");
+        String tit6 = JOptionPane.showInputDialog ("Insira o título do livro: ");
         String statnovo = JOptionPane.showInputDialog ("Insira o novo status: ");
         String url7 = "jdbc:mysql://localhost/projetointegrador";
-        String sql7 = "UPDATE clientes set status='"+statnovo+"' where status='"+statantigo+"'";
+        String sql7 = "UPDATE livro set status='"+statnovo+"' where titulo='"+tit6+"'";
         try {
             Connection conexao = DriverManager.getConnection(url7,"root","");
             PreparedStatement atualizar = conexao.prepareStatement(sql7);
@@ -194,6 +202,40 @@ public class EditarLIV extends javax.swing.JFrame {
         catch(Exception erro){
             JOptionPane.showMessageDialog(null,"Erro na Conexão com Banco."+erro);
     }
+        break;
+            
+            case "8":
+                String tit7 = JOptionPane.showInputDialog ("Insira o título do livro: ");
+                String pratnova = JOptionPane.showInputDialog ("Insira a nova prateleira: ");
+                String url8 = "jdbc:mysql://localhost/projetointegrador";
+                String sql8 = "UPDATE livro set prateleira='"+pratnova+"' where titulo='"+tit7+"'";
+        try {
+            Connection conexao = DriverManager.getConnection(url8,"root","");
+            PreparedStatement atualizar = conexao.prepareStatement(sql8);
+            atualizar.executeUpdate();
+            JOptionPane.showMessageDialog(null,"Atualizado com sucesso!");
+            MEN.setVisible(true);
+        }
+        catch(Exception erro){
+            JOptionPane.showMessageDialog(null,"Erro na Conexão com Banco."+erro);
+    }
+        break;
+            
+            case "9":
+                String tit8 = JOptionPane.showInputDialog ("Insira o título do livro: ");
+                String corredor = JOptionPane.showInputDialog ("Insira o novo corredor: ");
+                String url9 = "jdbc:mysql://localhost/projetointegrador";
+                String sql9 = "UPDATE livro set corredor='"+corredor+"' where titulo='"+tit8+"'";
+        try {
+            Connection conexao = DriverManager.getConnection(url9,"root","");
+            PreparedStatement atualizar = conexao.prepareStatement(sql9);
+            atualizar.executeUpdate();
+            JOptionPane.showMessageDialog(null,"Atualizado com sucesso!");
+            MEN.setVisible(true);
+        }
+        catch(Exception erro){
+            JOptionPane.showMessageDialog(null,"Erro na Conexão com Banco."+erro);
+    }               
 }
     }                                      
 
