@@ -10,7 +10,7 @@ package projetointegrador.LIVRO;
  * @author 36127512021.2
  */
 public class LIV {
-        String autor, titulo, isbn, editora, volume, quantidade, status, prateleira, corredor;
+        String autor, titulo, isbn, editora, volume, quantidade, status, prateleira, estante;
 
     public String getAutor() {
         return autor;
@@ -76,12 +76,12 @@ public class LIV {
         this.prateleira = prateleira;
     }
 
-    public String getCorredor() {
-        return corredor;
+    public String getEstante() {
+        return estante;
     }
 
-    public void setCorredor(String corredor) {
-        this.corredor = corredor;
+    public void setEstante(String estante) {
+        this.estante = estante;
     }
     
 }
