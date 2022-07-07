@@ -6,7 +6,6 @@
 package projetointegrador;
 
 
-import static Visão.TelaLogin.getMd5;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -40,48 +39,52 @@ public class TelaLogin extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">                          
     private void initComponents() {
 
+        jButton1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         login = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         senha = new javax.swing.JPasswordField();
         entrar = new javax.swing.JButton();
+        pesquisa = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
 
-        setMinimumSize(new java.awt.Dimension(400, 400));
-        setPreferredSize(new java.awt.Dimension(400, 400));
+        jButton1.setText("jButton1");
+
+        setMinimumSize(new java.awt.Dimension(400, 420));
+        setPreferredSize(new java.awt.Dimension(400, 420));
         setResizable(false);
-        setSize(new java.awt.Dimension(400, 400));
+        setSize(new java.awt.Dimension(400, 420));
         getContentPane().setLayout(null);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Tela de Login");
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(120, 30, 160, 40);
+        jLabel1.setBounds(110, 40, 160, 40);
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Senha:");
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(50, 160, 70, 50);
+        jLabel2.setBounds(40, 170, 70, 50);
 
         login.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         getContentPane().add(login);
-        login.setBounds(120, 90, 210, 50);
+        login.setBounds(120, 100, 210, 50);
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Login:");
         getContentPane().add(jLabel3);
-        jLabel3.setBounds(50, 90, 60, 50);
+        jLabel3.setBounds(40, 100, 60, 50);
 
         senha.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         getContentPane().add(senha);
-        senha.setBounds(120, 160, 210, 50);
+        senha.setBounds(120, 170, 210, 50);
 
         entrar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        entrar.setText("Entrar");
+        entrar.setText("ENTRAR");
         entrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 entrarActionPerformed(evt);
@@ -90,10 +93,20 @@ public class TelaLogin extends javax.swing.JFrame {
         getContentPane().add(entrar);
         entrar.setBounds(130, 250, 110, 30);
 
+        pesquisa.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        pesquisa.setText("PESQUISA RÁPIDA");
+        pesquisa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pesquisaActionPerformed(evt);
+            }
+        });
+        getContentPane().add(pesquisa);
+        pesquisa.setBounds(210, 340, 170, 30);
+
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projetointegrador/Imagens/estante-para-livros.jpg"))); // NOI18N
         jLabel4.setText("jLabel3");
         getContentPane().add(jLabel4);
-        jLabel4.setBounds(0, 0, 400, 390);
+        jLabel4.setBounds(0, 0, 400, 400);
 
         pack();
         setLocationRelativeTo(null);
@@ -132,6 +145,40 @@ public class TelaLogin extends javax.swing.JFrame {
     }
     }                                      
 
+    private void pesquisaActionPerformed(java.awt.event.ActionEvent evt) {                                         
+        TelaLogin TEL = new TelaLogin();
+        String L = JOptionPane.showInputDialog("Digite o título do livro: ");
+        String url = "jdbc:mysql://localhost/projetointegrador";
+        String sqlP = "SELECT * FROM livro WHERE titulo LIKE '%"+L+"%'";
+
+	    try {
+	    Connection conexao = DriverManager.getConnection(url,"root","");
+	    PreparedStatement pesquisa = conexao.prepareStatement(sqlP);
+	    ResultSet resultado = pesquisa.executeQuery();
+	    while (resultado.next()) {
+		String titulo  = resultado.getString("titulo");
+                String autor = resultado.getString("autor");
+                String quantidade = resultado.getString("quantidade");
+                String prat = resultado.getString("prateleira");
+                String esta = resultado.getString("estante");
+                
+                JOptionPane.showMessageDialog(null, "Dados encontrados com sucesso!\n"+
+						                    "------------------------------\n"+
+                                                                    "Título: "+titulo+"\n"+
+                                                                    "Autor: "+autor+"\n"+
+						                    "Cópias disponíveis: "+quantidade+"\n"+
+                                                                    "Prateleira: "+prat+"\n"+
+                                                                    "Estante: "+esta+"\n"+
+						                    "------------------------------");
+                
+	    }
+            TEL.setVisible(true);
+        }
+            catch(Exception erro) { 
+                JOptionPane.showMessageDialog(null, "Erro na Conexão com Banco."+erro);
+            }
+    }                                        
+
     /**
      * @param args the command line arguments
      */
@@ -169,11 +216,17 @@ public class TelaLogin extends javax.swing.JFrame {
 
     // Variables declaration - do not modify                     
     private javax.swing.JButton entrar;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JTextField login;
+    private javax.swing.JButton pesquisa;
     private javax.swing.JPasswordField senha;
     // End of variables declaration                   
+
+    private String getMd5(String password) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }
